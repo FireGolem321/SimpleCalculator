@@ -36,15 +36,15 @@ public class Calculator extends JFrame {
 
         JPanel p1 = new JPanel();
         p1.setLayout(new GridLayout(4, 3));
-        p1.add(jbtNum1 = new JButton("1"));
-        p1.add(jbtNum2 = new JButton("2"));
-        p1.add(jbtNum3 = new JButton("3"));
-        p1.add(jbtNum4 = new JButton("4"));
-        p1.add(jbtNum5 = new JButton("5"));
-        p1.add(jbtNum6 = new JButton("6"));
         p1.add(jbtNum7 = new JButton("7"));
         p1.add(jbtNum8 = new JButton("8"));
         p1.add(jbtNum9 = new JButton("9"));
+        p1.add(jbtNum4 = new JButton("4"));
+        p1.add(jbtNum5 = new JButton("5"));
+        p1.add(jbtNum6 = new JButton("6"));
+        p1.add(jbtNum1 = new JButton("1"));
+        p1.add(jbtNum2 = new JButton("2"));
+        p1.add(jbtNum3 = new JButton("3"));
         p1.add(jbtNum0 = new JButton("0"));
         p1.add(jbtClear = new JButton("C"));
 
