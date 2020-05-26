@@ -1,3 +1,4 @@
+import java.awt.event.*;
 import javax.swing.*;
 
 public class Calculator extends JFrame{
@@ -9,6 +10,13 @@ public class Calculator extends JFrame{
 	private JMenuItem close;
 	
 	public static void main(String[] args) {
+		
+			try {
+				UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+				JFrame.setDefaultLookAndFeelDecorated(true);
+			} catch (Exception e) {
+				System.out.println("Could not load system look");
+			}
 		new Calculator();
 	}
 	
@@ -24,6 +32,12 @@ public class Calculator extends JFrame{
 		close = new JMenuItem ("Close");
 		setJMenuBar(menuBar);
 		menuBar.add(file);
+		close.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e)
+				{System.exit(0);
+				 }
+		});
+		
 		file.add(close);
 	}
 
