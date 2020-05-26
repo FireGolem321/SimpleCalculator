@@ -1,3 +1,5 @@
+import java.awt.Toolkit;
+import java.awt.datatransfer.*;
 import java.awt.event.*;
 import javax.swing.*;
 
@@ -7,13 +9,17 @@ public class Calculator extends JFrame{
 	
 	private JMenuBar menuBar;
 	private JMenu file;
+	private JMenu edit;
+	private JMenu help;
 	private JMenuItem close;
+	private JMenuItem copy;
+	private JMenuItem view;
+	private JMenuItem about;
 	
 	public static void main(String[] args) {
 		
 			try {
 				UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-				JFrame.setDefaultLookAndFeelDecorated(true);
 			} catch (Exception e) {
 				System.out.println("Could not load system look");
 			}
@@ -29,16 +35,47 @@ public class Calculator extends JFrame{
 	private void sendMenuBar() {
 		menuBar = new JMenuBar();
 		file = new JMenu(" File ");
+		edit = new JMenu(" Edit ");
+		help = new JMenu(" Help ");
 		close = new JMenuItem ("Close");
+		copy = new JMenuItem("Copy");
+		view = new JMenuItem("View Help");
+		about = new JMenuItem("About Calculator");
 		setJMenuBar(menuBar);
 		menuBar.add(file);
+		menuBar.add(edit);
+		menuBar.add(help);
+		
 		close.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e)
-				{System.exit(0);
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
 				 }
 		});
 		
+		copy.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String display = "";
+				StringSelection string = new StringSelection(display);
+				Clipboard system = Toolkit.getDefaultToolkit().getSystemClipboard();
+				system.setContents(string, string);
+			}
+		});
+		
+		view.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
+		about.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		file.add(close);
+		edit.add(copy);
+		help.add(view);
+		help.add(about);
 	}
 
 	private void sendUI(Calculator app) {
