@@ -21,8 +21,8 @@ public class Calculator extends JFrame {
     private JButton jbtDivide;
     private JButton jbtSolve;
     private JButton jbtClear;
-    private double TEMP;
-    private double SolveTEMP;
+    private double temp;
+    private double solveTEMP;
     private JTextField jtfResult;
 
     Boolean addBool = false;
@@ -91,15 +91,14 @@ public class Calculator extends JFrame {
 
     class ListenToClear implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            //display = jtfResult.getText();
             jtfResult.setText("");
             addBool = false;
             subBool = false;
             mulBool = false;
             divBool = false;
 
-            TEMP = 0;
-            SolveTEMP = 0;
+            temp = 0;
+            solveTEMP = 0;
         }
     }
 
@@ -175,7 +174,7 @@ public class Calculator extends JFrame {
 
     class ListenToAdd implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            TEMP = Double.parseDouble(jtfResult.getText());
+            temp = Double.parseDouble(jtfResult.getText());
             jtfResult.setText("");
             addBool = true;
         }
@@ -183,7 +182,7 @@ public class Calculator extends JFrame {
 
     class ListenToSubtract implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            TEMP = Double.parseDouble(jtfResult.getText());
+            temp = Double.parseDouble(jtfResult.getText());
             jtfResult.setText("");
             subBool = true;
         }
@@ -191,7 +190,7 @@ public class Calculator extends JFrame {
 
     class ListenToMultiply implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            TEMP = Double.parseDouble(jtfResult.getText());
+            temp = Double.parseDouble(jtfResult.getText());
             jtfResult.setText("");
             mulBool = true;
         }
@@ -199,7 +198,7 @@ public class Calculator extends JFrame {
 
     class ListenToDivide implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            TEMP = Double.parseDouble(jtfResult.getText());
+            temp = Double.parseDouble(jtfResult.getText());
             jtfResult.setText("");
             divBool = true;
         }
@@ -207,16 +206,16 @@ public class Calculator extends JFrame {
 
     class ListenToSolve implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            SolveTEMP = Double.parseDouble(jtfResult.getText());
+            solveTEMP = Double.parseDouble(jtfResult.getText());
             if (addBool == true)
-                SolveTEMP = SolveTEMP + TEMP;
+                solveTEMP = solveTEMP + temp;
             else if ( subBool == true)
-                SolveTEMP = SolveTEMP - TEMP;
+                solveTEMP = solveTEMP - temp;
             else if ( mulBool == true)
-                SolveTEMP = SolveTEMP * TEMP;
+                solveTEMP = solveTEMP * temp;
             else if ( divBool == true)
-                            SolveTEMP = SolveTEMP / TEMP;
-            jtfResult.setText(  Double.toString(SolveTEMP));
+                            solveTEMP = solveTEMP / temp;
+            jtfResult.setText(  Double.toString(solveTEMP));
 
             addBool = false;
             subBool = false;
